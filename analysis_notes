@@ -1,0 +1,16 @@
+## --- defining the model with tidymodel ---
+
+Why is linear regression an appropriate starting point for this biological question?
+
+- a straightforward approach to quantifying relationships between variables
+
+What assumptions are we making about the relationship between methylation levels and age?
+
+- assuming changes in methylation at specific CpG sites correlate linearly with age
+
+What other preprocessing steps might be helpful when working with methylation data?
+- removing highly correlated CpG sites to reduce redundancy
+- scaling (standardising) methylation values if they have very different variances 
+- transforming skewed methylation distributions
+- imputing missing values if some CpG sites have gaps
+
