@@ -7,6 +7,7 @@ library(here)
 library(performance)
 library(usethis) 
 library(janitor)
+library(yardstick)
 
 creds::gitcreds_set()
              
