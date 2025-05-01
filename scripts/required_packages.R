@@ -6,3 +6,7 @@ library(tidyverse)
 library(here)
 library(performance)
 library(usethis) 
+library(janitor)
+
+creds::gitcreds_set()
+             

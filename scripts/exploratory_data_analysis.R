@@ -16,7 +16,7 @@ linear_model <- linear_reg() |>
 
 # preprocess the data with a repcipe 
 # centering the predictors (methylation values for each CpG site) in the recipe
-age_recipe <- recipe(Age ~ ., data = ch4) |> 
+age_recipe <- recipe(age ~ ., data = ch4) |> 
   step_center(all_predictors())  # Centering the predictors
 
 ## --- create a workflow ---
@@ -30,3 +30,4 @@ workflow_model <- workflow() |>
 
 # fitting the model
 fit_model <- fit(workflow_model, data = ch4)
+
