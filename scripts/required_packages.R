@@ -8,6 +8,7 @@ library(performance)
 library(usethis) 
 library(janitor)
 library(yardstick)
+library(glmnet)
 
-creds::gitcreds_set()
+gitcreds::gitcreds_set()
              

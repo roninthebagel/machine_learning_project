@@ -187,3 +187,59 @@ ggsave("figures/cv_folds_plot.pdf",
        height = 10, 
        units = "cm", 
        device = "pdf")
+
+## --- final model evaluation ---
+
+# use 5-fold cross-validation for final assessment
+final_k <- vfold_cv(train_data, v = 5)
+
+# fit with prediction saving
+final_cv_results <- fit_resamples(
+  workflow_model, 
+  resamples = final_k,
+  control = control_resamples(save_pred = TRUE)
+)
+
+# examine performance metrics
+collect_metrics(final_cv_results)
+
+# get all predictions across folds for visualization
+cv_predictions <- collect_predictions(final_cv_results)
+
+# visualize predictions vs actual values across all folds
+cv_predictions_plot <- ggplot(cv_predictions, aes(x = age, y = .pred)) +
+  geom_point(alpha = 0.5) +
+  geom_abline(intercept = 0, slope = 1, color = "red", linetype = "dashed") +
+  labs(title = "Cross-Validation Predictions vs Actual Age",
+       x = "Actual Age (years)",
+       y = "Predicted Age (years)")
+
+# saving plot
+ggsave("figures/cv_predictions_plot.pdf",
+       plot = cv_predictions_plot, 
+       width = 25,
+       height = 10, 
+       units = "cm", 
+       device = "pdf")
+
+#__________________________----
+
+## --- alternative models ---
+
+## --- lasso regression (r1 regularisation) ---
+# define a Lasso regression model with a specific penalty
+lasso_model <- linear_reg(penalty = 0.1, mixture = 1) |> 
+  set_engine("glmnet")
+
+# create a workflow with the Lasso model
+workflow_model_lasso <- workflow() |> 
+  add_model(lasso_model) |> 
+  add_recipe(age_recipe)
+
+## lasso model error
+
+# fit the Lasso model
+fit_lasso <- fit(workflow_model_lasso, data = ch4)
+
+# check model performance
+mse_impl(fit_lasso, ch4, Age)
