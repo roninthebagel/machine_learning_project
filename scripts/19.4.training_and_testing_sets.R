@@ -23,20 +23,20 @@ cat("RMSE is:", sqrt(mse_impl(lm_fit, test_data, age)))
 
 ####
 
-# Make predictions on the test set using the linear model
+# make predictions on the test set using the linear model
 lm_predictions <- predict(lm_fit, new_data = test_data)
 
-# Combine predictions with actual values (truth) into a tibble
+# combine predictions with actual values (truth) into a tibble
 results <- tibble(
   truth = test_data$age,  # Actual values (truth)
   estimate = lm_predictions$.pred  # Predicted values (estimate)
 )
 
-# Now use yardstick's rsq function to calculate R-squared
+# now use yardstick's rsq function to calculate R-squared
 rsq_result <- rsq(results, truth = truth, 
                   estimate = estimate)
 
-# Print the R-squared result
+# print the R-squared result
 rsq_result
 
 ## --- cross-validation for robust evaluation (k-folds) ---

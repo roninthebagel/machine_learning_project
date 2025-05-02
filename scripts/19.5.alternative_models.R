@@ -10,8 +10,6 @@ workflow_model_lasso <- workflow() |>
   add_model(lasso_model) |> 
   add_recipe(age_recipe)
 
-## lasso model error
-
 # fit the Lasso model
 fit_lasso <- fit(workflow_model_lasso, data = ch4)
 

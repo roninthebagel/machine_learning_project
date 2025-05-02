@@ -4,13 +4,36 @@ Why is linear regression an appropriate starting point for this biological quest
 
 - a straightforward approach to quantifying relationships between variables
 
+###
+
 What assumptions are we making about the relationship between methylation levels and age?
 
 - assuming changes in methylation at specific CpG sites correlate linearly with age
 
-What other preprocessing steps might be helpful when working with methylation data?
+###
+
+What other preprocessing steps might be helpful when working with methylation data? Would scaling (standardising) the predictors also be beneficial? Why or why not?
 - removing highly correlated CpG sites to reduce redundancy
 - scaling (standardising) methylation values if they have very different variances 
 - transforming skewed methylation distributions
 - imputing missing values if some CpG sites have gaps
 
+###
+
+What is actually happening when we “fit” a linear regression model to methylation data? What are we trying to do?
+
+- when fitting an ordinary regression model we attempt to find the coefficient values through the process of ordinary least squares
+
+###
+
+Which CpG sites appear most important for predicting age? Are there any that don’t seem significantly associated with age?
+
+- CpG 1 TET2, CpG 3 TET2, and ASPA 1 all present negative coefficients (estimates), suggesting these are sites where methylation decreases with age. All the other sites show positive coefficients, which is where methylation increases with age. 
+- Using our assumption, where we assumed "changes in methylation at specific CpG sites correlate linearly with age", we woudld expect methylation to increase with age. So we can state that the sites presenting positive coefficients show this trend, and so are important for predicting age. 
+
+###
+
+What would be an acceptable error margin for age prediction in your biological context? How might this compare to other methods of age determination in bats?
+
+- RMSE tells us the typical error in our age predictions in years, so we can use that value as an error margin for age prediction. 
+- 
