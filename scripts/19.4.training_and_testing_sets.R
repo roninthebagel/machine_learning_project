@@ -1,4 +1,4 @@
-## --- training and testing sets ---
+## --- training and testing sets --- ##
 
 # split the data into 80% training and 20% testing
 set.seed(123)  # For reproducibility
@@ -39,7 +39,7 @@ rsq_result <- rsq(results, truth = truth,
 # print the R-squared result
 rsq_result
 
-## --- cross-validation for robust evaluation (k-folds) ---
+## --- cross-validation for robust evaluation (k-folds) --- ##
 
 # perform 10-fold cross-validation
 #v/k same thing

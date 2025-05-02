@@ -67,9 +67,10 @@ rmse
 # Get more comprehensive model statistics
 glance(fit_model)
 
-## --- check model assumptions ---
+## --- check model assumptions --- ##
 
 # creating visual fit models
 fit_model |> 
   extract_fit_engine() |> 
   check_model()
+

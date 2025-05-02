@@ -1,6 +1,6 @@
-## --- alternative models ---
+## --- alternative models --- ##
 
-## --- lasso regression (r1 regularisation) ---
+## --- lasso regression (r1 regularisation) --- ##
 # define a Lasso regression model with a specific penalty
 lasso_model <- linear_reg(penalty = 0.1, mixture = 1) |> 
   set_engine("glmnet")

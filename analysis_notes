@@ -1,4 +1,5 @@
-## --- defining the model with tidymodel ---
+## --- defining the model with tidymodel --- ##
+
 
 Why is linear regression an appropriate starting point for this biological question?
 
@@ -13,6 +14,7 @@ What assumptions are we making about the relationship between methylation levels
 ###
 
 What other preprocessing steps might be helpful when working with methylation data? Would scaling (standardising) the predictors also be beneficial? Why or why not?
+
 - removing highly correlated CpG sites to reduce redundancy
 - scaling (standardising) methylation values if they have very different variances 
 - transforming skewed methylation distributions
@@ -37,3 +39,80 @@ What would be an acceptable error margin for age prediction in your biological c
 
 - RMSE tells us the typical error in our age predictions in years, so we can use that value as an error margin for age prediction. 
 - 
+
+###
+
+What assumptions does linear regression make, and do our model diagnostics suggest these assumptions are met? Look particularly at: - Linearity (do residuals show patterns?) - Homoscedasticity (is residual variance constant across predicted values?) - Normality of residuals - Influential outliers
+
+- linear regressions assume that the relationship between the predictor variables and the outcome are linear.
+- in the linearity graph, the reference line is not completely flat and horizontal, suggesting that we may need to transform the data to gain a better fit.
+
+###
+
+Based on our diagnostics, what specific improvements might help our model? What biological mechanisms might explain non-linear relationships between methylation and age?
+
+- transforming (i.e. log-transformating) our data will help to gain a better fit.
+- there may be other predictors and environmental factors which may alter the relationship between methylation and age
+
+
+## --- training and testing sets --- ##
+
+
+Why is it important to evaluate our model on a separate test set?
+
+- models have two competing goals:
+  - accurately capturing patterns in your data (1) while ignoring random noise (2)
+- without a separate test set, you can’t tell if your model is actually learning generalisable patterns or simply memorizing the training examples (overfitting)
+
+###
+
+What might happen if we only evaluated performance on our training data?
+
+- when you evaluate performance on the same data used for training:
+  - performance metrics will be artificially inflated
+  - you’ll have no reliable way to predict how your model will perform on new data
+  - you might select an overly complex model that fits noise rather than signal
+
+###
+
+How does the performance on the test set compare to the training set? If there’s a large difference, what might that indicate?
+
+- the two sets are quite similar, particularly as the same three CpG sites are negative in both sets (and the rest are positive)
+
+###
+
+What advantages does cross-validation offer over a single train/test split? How consistent are the results across folds?
+
+- cross-validation uses multiple train/test splits. 
+- in k-fold cross-validation:
+  - your dataset is divided into k equally sized segments (or “folds”)
+  - the model is trained and tested k times
+  - each time, a different fold serves as the test set while the remaining k-1 folds form the training set
+  - performance metrics are averaged across all k iterations
+
+###
+
+How does the number of folds affect the stability and value of the performance metrics? What tradeoffs are involved in choosing a higher or lower number of folds?
+
+- the mean performance in rmse and rsq can vary depending on the number of folds. rmse tends to decrease in mean performance as the number of folds increases, whilst the rsq increases with the mean performance.
+
+###
+
+What improvements would make this model more useful for real-world biological applications? What additional data would strengthen the model’s reliability?
+
+- our methylation-based age prediction model could be valuable for:
+  - non-invasive age determination in wild bat populations 
+  - studying how environmental factors affect biological aging rates 
+  - comparing aging patterns across different bat species 
+  - investigating the health effects of factors like habitat fragmentation
+
+
+## --- alternative models --- ##
+
+
+With methylation data, why might overfitting be a particular concern? Consider the typical dimensionality of methylation datasets.
+
+- overfitting models may lead to incorrect analysis of data, or the missing of certain trends. 
+
+###
+
