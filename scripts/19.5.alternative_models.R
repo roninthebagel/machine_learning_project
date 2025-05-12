@@ -24,17 +24,17 @@ mse_impl(fit_lasso, ch4, age)
 
 ## --- ridge regression (l2 regularisation) --- ##
 
-# Define a Ridge regression model
+# define a Ridge regression model
 ridge_model <- linear_reg(penalty = 0.1, mixture = 0) |> 
   set_engine("glmnet")
 
-# Create a workflow with the Ridge model
+# create a workflow with the Ridge model
 workflow_model_ridge <- workflow() |> 
   add_model(ridge_model) |> 
   add_recipe(age_recipe)
 
-# Fit the Ridge model
+# fit the Ridge model
 fit_ridge <- fit(workflow_model_ridge, data = ch4)
 
-# Check model performance
+# check model performance
 mse_impl(fit_ridge, ch4, age) 

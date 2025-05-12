@@ -9,6 +9,8 @@ library(usethis)
 library(janitor)
 library(yardstick)
 library(glmnet)
+library(kknn)
+library(patchwork)
 
 gitcreds::gitcreds_set()
              
