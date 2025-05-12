@@ -1,10 +1,10 @@
 # machine_learning_project
 
 This repository includes: 
-- A scripts folder which contains several r-studio scripts; one per chapter (as labelled) plus one with the used required packages and another with the data tidying methods
+- A scripts folder which contains several r-studio scripts; one per chapter (as labelled) plus one with the used required packages ("required_packages.R") and another with the data tidying methods ("data_tidying.R")
 - A figures folder with all created plots, which includes data plots and model comparison plots
-- A data folder which includes the raw data (pre-tidying)
-- A text file labelled "analysis_notes", which contains the questions and answers to the "stop and think" segments in the workbook.
+- A data folder which includes the initial (pre-tidying) raw data ("DNA methylation data.xlsm") 
+- A text file labelled "analysis_notes", which contains the questions and answers to the "stop and think" segments in the workbook
 
 
 # The Project:
