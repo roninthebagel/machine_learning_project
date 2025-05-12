@@ -169,4 +169,3 @@ ggsave("figures/rmse_plot.pdf",
        height = 10, 
        units = "cm", 
        device = "pdf")
-

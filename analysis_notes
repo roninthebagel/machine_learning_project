@@ -119,8 +119,8 @@ With methylation data, why might overfitting be a particular concern? Consider t
 When would you prefer Ridge over Lasso for methylation data analysis? Consider the biological meaning of correlated CpG sites.
 
 - ridge regression is useful when multiple CpG sites provide partially redundant information about age (which is common in methylation data).
-- rather than selecting just one site from a correlated group (as Lasso 
-might), Ridge keeps all sites but reduces their individual influence.
+- rather than selecting just one site from a correlated group (as lasso 
+might), ridge keeps all sites but reduces their individual influence.
 
 
 ## --- K-nearest neighbours (KNN) regression --- ##
@@ -138,5 +138,24 @@ Based on these visualizations (plot lists), which model appears to perform best?
 - the KNN model has data which is least fit to the model (points are furthest from the intercept line)
 - non-fit models can lead to inaccuracies in further data analyses models
 
-### 
 
+## --- proper model training with cross-validation --- ##
+
+How does proper tuning affect model performance? Why is this cross-validation approach better than just trying different values on the whole dataset?
+
+- hyperparameters control how a machine-learning model learns from data.
+- correctly tuning hyperparameters can improve a model's performance. Poor settings may cause:
+  - underfitting: the model is too simple to capture the underlying patterns.
+  - overfitting: the model is too complex and captures noise rather than useful patterns, leading to poor generalization.
+  - slow convergence: poorly tuned models, such as those with too small a learning rate, can take excessively long to converge or may not converge at all.
+
+
+## --- summary of model comparison --- ##
+
+Which model would you choose for your bat aging research, and why? Consider both statistical performance and biological interpretability.
+
+- each model has it's own strengths and weaknesses, so there is no right or wrong answer here
+- i would probably use the ridge model, as the model handles correlated CpG sites well and reduces overfitting.
+- ridge models would, however, require tuning beforehand (which can quickly and easily be applied).
+- this model also retains all features (no clear feature selection), so would be unable to  improve the model's accuracy scores or to boost its performance on very high-dimensional datasets.
+- multiple analyses could be selected to compare results and account for these weaknesses.
