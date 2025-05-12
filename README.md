@@ -1,15 +1,20 @@
 # machine_learning_project
 
-this repository contains a scripts folder which contains: 
-- a scripts folder containing several r-studio scripts; one per chapter (as labelled) plus one with the used required packages and another with the data tidying methods
-- a figures folder with all created plots, including data plots and model comparison plots
-- a data folder with the raw data (pre-tidying)
-- the text file, "analysis_notes", containing the questions and answers to the "stop and think" segments in the workbook.
+This repository includes: 
+- A scripts folder which contains several r-studio scripts; one per chapter (as labelled) plus one with the used required packages and another with the data tidying methods
+- A figures folder with all created plots, which includes data plots and model comparison plots
+- A data folder which includes the raw data (pre-tidying)
+- A text file labelled "analysis_notes", which contains the questions and answers to the "stop and think" segments in the workbook.
 
 
-# the project:
-this case study looks at bat methylation data, and here we’ll demonstrate how these components work together to answer a specific biological question: 
-- can DNA methylation patterns accurately predict bat age?
+# The Project:
+This case study looks at bat methylation data, and here we’ll demonstrate how these components work together to answer a specific biological question: 
+- Can DNA methylation patterns accurately predict bat age?
 
-We will also test which model (initial tidymodel, and the train/test models) has the best predictive capability.
 
+# Model Comparisons:
+We will also test which model (initial tidymodel, and the train/test models) has the best predictive capability. Within this project, we will investigate the following models:
+- Linear regression model
+- Ridge model
+- Lasso model
+- K-Nearest Neighbors (KNN) Regression model
